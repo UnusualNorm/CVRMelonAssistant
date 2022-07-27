@@ -9,36 +9,36 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: Setup msbuild
-      uses: microsoft/setup-msbuild@v1.0.2
-    - name: Restore NuGet packages
-      working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: nuget restore VRCMelonAssistant.sln
-    - name: Build project
-      run: msbuild VRCMelonAssistant/VRCMelonAssistant.csproj /t:Build /p:Configuration=Release
-    - name: Cleanup release
-      shell: bash
-      run: |
-        find "VRCMelonAssistant/bin/Release" -type f ! -name "VRCMelonAssistant.exe" -delete
-        cp "LICENSE" "VRCMelonAssistant/bin/Release/LICENSE.VRCMelonAssistant.txt"
-    - name: Upload Build
-      if: startsWith(github.ref, 'refs/tags/') == false
-      uses: actions/upload-artifact@v2
-      with:
-        name: VRCMelonAssistant-${{ github.sha }}
-        path: ./VRCMelonAssistant/bin/Release/
-    - name: Extract Release Version
-      if: startsWith(github.ref, 'refs/tags/')
-      id: get_version
-      shell: bash
-      run: echo ::set-output name=version::${GITHUB_REF#refs/tags/v}
-    - name: Release
-      if: startsWith(github.ref, 'refs/tags/')
-      uses: softprops/action-gh-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        name: VRChat Melon Assistant  v${{ steps.get_version.outputs.version }}
-        files: ./VRCMelonAssistant/bin/Release/VRCMelonAssistant.exe
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup msbuild
+        uses: microsoft/setup-msbuild@v1.0.2
+      - name: Restore NuGet packages
+        working-directory: ${{env.GITHUB_WORKSPACE}}
+        run: nuget restore VRCMelonAssistant.sln
+      - name: Build project
+        run: msbuild VRCMelonAssistant/VRCMelonAssistant.csproj /t:Build /p:Configuration=Release
+      - name: Cleanup release
+        shell: bash
+        run: |
+          find "VRCMelonAssistant/bin/Release" -type f ! -name "VRCMelonAssistant.exe" -delete
+          cp "LICENSE" "VRCMelonAssistant/bin/Release/LICENSE.VRCMelonAssistant.txt"
+      - name: Upload Build
+        if: startsWith(github.ref, 'refs/tags/') == false
+        uses: actions/upload-artifact@v2
+        with:
+          name: VRCMelonAssistant-${{ github.sha }}
+          path: ./VRCMelonAssistant/bin/Release/
+      - name: Extract Release Version
+        if: startsWith(github.ref, 'refs/tags/')
+        id: get_version
+        shell: bash
+        run: echo ::set-output name=version::${GITHUB_REF#refs/tags/v}
+      - name: Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          name: ChilloutVR Melon Assistant  v${{ steps.get_version.outputs.version }}
+          files: ./VRCMelonAssistant/bin/Release/VRCMelonAssistant.exe
