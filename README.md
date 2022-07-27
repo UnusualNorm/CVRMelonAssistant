@@ -1,6 +1,6 @@
-# [Download here!](https://github.com/knah/VRCMelonAssistant/releases/latest)
+# [Download here!](https://github.com/UnusualNorm/CoVRMelonAssistant/releases/latest)
 
-ChilloutVR Melon Assistant is a PC mod installer for ChilloutVR. It uses mods published in [VRChat Modding Group Discord](https://discord.gg/rCqKSvR).  
+ChilloutVR Melon Assistant is a PC mod installer for ChilloutVR. It uses mods published in [ChilloutVR Modding Group Discord](https://discord.gg/rCqKSvR).  
 It's a simple fork of [knah's VRChat Melon Assistant](https://github.com/knah/VRCMelonAssistant), a mod manager for Beat Saber.  
 **Modifying the ChilloutVR client is allowed by ChilloutVR Terms of Service and can only lead to your account being banned if used maliciously.** Mods available via this installer are manually checked to minimize the chance of that happening, but the risk is always there.  
 ChilloutVR Melon Assistant is not affiliated with and/or endorsed by Alpha Blend Interactive.
@@ -38,10 +38,10 @@ Double check that you followed the [Usage](#usage) instructions correctly.
  Additionally, make sure the proper ChilloutVR installation directory is selected in option tab.
 
 **I don't see a certain mod in the mods list!**
-ChilloutVR Melon Assistant uses mods from ChilloutVR Modding Group and shows whatever is available for download. It's recommended to avoid non-VRCMG mods due to rampant spread of malware disguised as mods.
+ChilloutVR Melon Assistant uses mods from ChilloutVR Modding Group and shows whatever is available for download. It's recommended to avoid non-CoVRMG mods due to rampant spread of malware disguised as mods.
 
 **I hit install but now my game won't launch, I can't click any buttons, I only see a black screen, etc**
-Please visit the [VRChat Modding Group](https://discord.gg/rCqKSvR) `#help-and-support` channel. Check the pinned messages or ask for help and see if you can work out things out.
+Please visit the [ChilloutVR Modding Group](https://discord.gg/rCqKSvR) `#help-and-support` channel. Check the pinned messages or ask for help and see if you can work out things out.
 
 ## Credits
 
