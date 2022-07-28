@@ -145,6 +145,9 @@ namespace CVRMelonAssistant.Pages
                 CheckInstallDir("Mods/Broken", isBrokenDir: true);
                 CheckInstallDir("Plugins/Retired", isRetiredDir: true);
                 CheckInstallDir("Mods/Retired", isRetiredDir: true);
+                CheckInstallDir("UserLibs");
+                CheckInstallDir("UserLibs/Broken", isBrokenDir: true);
+                CheckInstallDir("UserLibs", isRetiredDir: true);
             });
         }
 
@@ -183,33 +186,38 @@ namespace CVRMelonAssistant.Pages
                 if (!File.Exists(file) || Path.GetExtension(file) != ".dll") continue;
 
                 var modInfo = ExtractModVersions(file);
-                if (modInfo.Item1 != null && modInfo.Item2 != null)
+                if (modInfo.Item1 == null)
+                    modInfo.Item1 = Path.GetFileName(file);
+                if (modInfo.Item2 == null)
+                    modInfo.Item2 = "0.0.0-unknown";
+                if (modInfo.Item3 == null)
+                    modInfo.Item3 = "unknown";
+
+                var haveFoundMod = false;
+
+                foreach (var mod in AllModsList)
                 {
-                    var haveFoundMod = false;
+                    if (!mod.aliases.Contains(modInfo.ModName) && mod.versions.All(it => it.name != modInfo.ModName)) continue;
 
-                    foreach (var mod in AllModsList)
+                    HaveInstalledMods = true;
+                    haveFoundMod = true;
+                    mod.installedFilePath = file;
+                    mod.installedVersion = modInfo.ModVersion;
+                    mod.installedInBrokenDir = isBrokenDir;
+                    mod.installedInRetiredDir = isRetiredDir;
+                    break;
+                }
+
+                if (!haveFoundMod)
+                {
+                    var mod = new Mod()
                     {
-                        if (!mod.aliases.Contains(modInfo.ModName) && mod.versions.All(it => it.name != modInfo.ModName)) continue;
-
-                        HaveInstalledMods = true;
-                        haveFoundMod = true;
-                        mod.installedFilePath = file;
-                        mod.installedVersion = modInfo.ModVersion;
-                        mod.installedInBrokenDir = isBrokenDir;
-                        mod.installedInRetiredDir = isRetiredDir;
-                        break;
-                    }
-
-                    if (!haveFoundMod)
-                    {
-                        var mod = new Mod()
+                        installedFilePath = file,
+                        installedVersion = modInfo.ModVersion,
+                        installedInBrokenDir = isBrokenDir,
+                        installedInRetiredDir = isRetiredDir,
+                        versions = new[]
                         {
-                            installedFilePath = file,
-                            installedVersion = modInfo.ModVersion,
-                            installedInBrokenDir = isBrokenDir,
-                            installedInRetiredDir = isRetiredDir,
-                            versions = new []
-                            {
                                 new Mod.ModVersion()
                                 {
                                     name = modInfo.ModName,
@@ -218,9 +226,8 @@ namespace CVRMelonAssistant.Pages
                                     description = ""
                                 }
                             }
-                        };
-                        UnknownMods.Add(mod);
-                    }
+                    };
+                    UnknownMods.Add(mod);
                 }
             }
         }
@@ -233,8 +240,8 @@ namespace CVRMelonAssistant.Pages
                 foreach (var attr in asmdef.CustomAttributes)
                     if (attr.AttributeType.Name == "MelonInfoAttribute" ||
                         attr.AttributeType.Name == "MelonModInfoAttribute")
-                        return ((string) attr.ConstructorArguments[1].Value,
-                            (string) attr.ConstructorArguments[2].Value, (string) attr.ConstructorArguments[3].Value);
+                        return ((string)attr.ConstructorArguments[1].Value,
+                            (string)attr.ConstructorArguments[2].Value, (string)attr.ConstructorArguments[3].Value);
             }
             catch (Exception ex)
             {
