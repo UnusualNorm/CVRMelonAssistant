@@ -1,4 +1,4 @@
-# [Download here!](https://github.com/UnusualNorm/CoVRMelonAssistant/releases/latest)
+# [Download here!](https://github.com/UnusualNorm/CVRMelonAssistant/releases/latest)
 
 ## Notice!
 
@@ -44,7 +44,7 @@ Double check that you followed the [Usage](#usage) instructions correctly.
  Additionally, make sure the proper ChilloutVR installation directory is selected in option tab.
 
 **I don't see a certain mod in the mods list!**
-ChilloutVR Melon Assistant uses mods from ChilloutVR Modding Group and shows whatever is available for download. It's recommended to avoid non-CoVRMG mods due to rampant spread of malware disguised as mods.
+ChilloutVR Melon Assistant uses mods from ChilloutVR Modding Group and shows whatever is available for download. It's recommended to avoid non-CVRMG mods due to rampant spread of malware disguised as mods.
 
 **I hit install but now my game won't launch, I can't click any buttons, I only see a black screen, etc**
 Please visit the [ChilloutVR Modding Group](https://discord.gg/rCqKSvR) `#help-and-support` channel. Check the pinned messages or ask for help and see if you can work out things out.
