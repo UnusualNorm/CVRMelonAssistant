@@ -25,7 +25,7 @@ namespace CoVRMelonAssistant
         public class Constants
         {
             public const string ChilloutVRAppId = "661130";
-            public const string CoVRMGModsJson = "https://api.vrcmg.com/v1/mods";
+            public const string CoVRMGModsJson = "https://covr-mods.herokuapp.com/v1/mods";
             public const string WeebCDNAPIURL = "https://pat.assistant.moe/api/v1.0/";
             public const string MD5Spacer = "                                 ";
             public static readonly char[] IllegalCharacters = new char[]

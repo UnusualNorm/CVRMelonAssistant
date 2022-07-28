@@ -101,7 +101,7 @@ namespace CoVRMelonAssistant
                 stream.Position = 0;
 
                 targetFilePath = Path.Combine(App.ChilloutVRInstallDirectory, mod.versions[0].IsPlugin ? "Plugins" : "Mods",
-                    mod.versions[0].IsBroken ? "Broken" : (mod.versions[0].IsRetired ? "Retired" : ""), resp.RequestMessage.RequestUri.Segments.Last());
+                    mod.versions[0].IsBroken ? "Broken" : (mod.versions[0].IsRetired ? "Retired" : ""), mod.versions[0].fileName);
 
                 Directory.CreateDirectory(Path.GetDirectoryName(targetFilePath));
 

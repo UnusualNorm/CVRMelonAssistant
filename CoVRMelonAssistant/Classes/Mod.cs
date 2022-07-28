@@ -7,7 +7,6 @@ namespace CoVRMelonAssistant
     public class Mod
     {
         public int _id;
-        public string uploadDate;
         public string category;
         public string[] aliases;
         public ModVersion[] versions;
@@ -23,14 +22,11 @@ namespace CoVRMelonAssistant
             public string name;
             public string modVersion;
             public string modType;
+            public string fileName;
             public string author;
             public string description;
             public string downloadLink;
             public string sourceLink;
-            public string hash;
-            public string updateDate;
-            public string chilloutvrVersion;
-            public string loaderVersion;
             public int approvalStatus;
 
             public bool IsBroken => approvalStatus == 2;
