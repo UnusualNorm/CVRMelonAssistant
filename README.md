@@ -1,7 +1,13 @@
 # [Download here!](https://github.com/UnusualNorm/CoVRMelonAssistant/releases/latest)
 
+## Notice!
+
+There currently is no ChilloutVR Modding Group Discord that I know of, please ignore all references to the [ChilloutVR Modding Group Discord](https://discord.gg/rCqKSvR), the links simple redirect to the VRChat Modding Group Discord instead while I wait for one to come across my radar.
+
+---
+
 ChilloutVR Melon Assistant is a PC mod installer for ChilloutVR. It uses mods published in [ChilloutVR Modding Group Discord](https://discord.gg/rCqKSvR).  
-It's a simple fork of [knah's VRChat Melon Assistant](https://github.com/knah/VRCMelonAssistant), a mod manager for Beat Saber.  
+It's a simple fork of [knah's VRChat Melon Assistant](https://github.com/knah/VRCMelonAssistant), a mod manager for VRChat.  
 **Modifying the ChilloutVR client is allowed by ChilloutVR Terms of Service and can only lead to your account being banned if used maliciously.** Mods available via this installer are manually checked to minimize the chance of that happening, but the risk is always there.  
 ChilloutVR Melon Assistant is not affiliated with and/or endorsed by Alpha Blend Interactive.
 
