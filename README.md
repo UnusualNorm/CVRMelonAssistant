@@ -1,8 +1,8 @@
 # [Download here!](https://github.com/UnusualNorm/CVRMelonAssistant/releases/latest)
-
+## [Submit Mods here!](https://github.com/UnusualNorm/CVRMelonModAPI/issues)
 ## Notice!
 
-There currently is no ChilloutVR Modding Group Discord that I know of, please ignore all references to the [ChilloutVR Modding Group Discord](https://discord.gg/rCqKSvR), the links simple redirect to the VRChat Modding Group Discord instead while I wait for one to come across my radar.
+There currently is no ChilloutVR Modding Group Discord that I know of, please ignore all references to the [ChilloutVR Modding Group Discord](https://discord.gg/rCqKSvR), the links are simple redirects to the VRChat Modding Group Discord while I wait for one to come across my radar.
 
 ---
 
