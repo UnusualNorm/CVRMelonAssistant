@@ -44,12 +44,12 @@ namespace CVRMelonAssistant
 
             try
             {
-                MainWindow.Instance.MainText = $"{(string) App.Current.FindResource("Mods:DownloadingMelonLoader")}...";
+                MainWindow.Instance.MainText = $"{(string)App.Current.FindResource("Mods:DownloadingMelonLoader")}...";
 
                 using var installerZip = await DownloadFileToMemory("https://github.com/LavaGang/MelonLoader/releases/latest/download/MelonLoader.x64.zip");
                 using var zipReader = new ZipArchive(installerZip, ZipArchiveMode.Read);
 
-                MainWindow.Instance.MainText = $"{(string) App.Current.FindResource("Mods:UnpackingMelonLoader")}...";
+                MainWindow.Instance.MainText = $"{(string)App.Current.FindResource("Mods:UnpackingMelonLoader")}...";
 
                 foreach (var zipArchiveEntry in zipReader.Entries)
                 {
@@ -90,7 +90,7 @@ namespace CVRMelonAssistant
 
             if (mod.installedFilePath != null)
                 File.Delete(mod.installedFilePath);
-            
+
 
             string targetFilePath = "";
 
@@ -100,15 +100,19 @@ namespace CVRMelonAssistant
                 await resp.Content.CopyToAsync(stream);
                 stream.Position = 0;
 
-                targetFilePath = Path.Combine(App.ChilloutVRInstallDirectory, mod.versions[0].IsPlugin ? "Plugins" : "Mods",
-                    mod.versions[0].IsBroken ? "Broken" : (mod.versions[0].IsRetired ? "Retired" : ""), mod.versions[0].fileName);
+                targetFilePath = Path.Combine(App.ChilloutVRInstallDirectory,
+                    mod.versions[0].IsPlugin ? "Plugins" : (
+                    mod.versions[0].IsUserLib ? "UserLibs" :
+                    "Mods"),
+                        mod.versions[0].IsBroken ? "Broken" : (
+                        mod.versions[0].IsRetired ? "Retired" : ""), mod.versions[0].fileName);
 
                 Directory.CreateDirectory(Path.GetDirectoryName(targetFilePath));
 
                 using var targetFile = File.OpenWrite(targetFilePath);
                 await stream.CopyToAsync(targetFile);
             }
-            
+
             mod.ListItem.IsInstalled = true;
             mod.installedFilePath = targetFilePath;
             mod.ListItem.InstalledVersion = mod.versions[0].modVersion;

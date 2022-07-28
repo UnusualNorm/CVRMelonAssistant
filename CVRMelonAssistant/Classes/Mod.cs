@@ -32,6 +32,7 @@ namespace CVRMelonAssistant
             public bool IsBroken => approvalStatus == 2;
             public bool IsRetired => approvalStatus == 3;
             public bool IsPlugin => modType.Equals("plugin", StringComparison.InvariantCultureIgnoreCase);
+            public bool IsUserLib => modType.Equals("userlib", StringComparison.InvariantCultureIgnoreCase);
         }
     }
 }
