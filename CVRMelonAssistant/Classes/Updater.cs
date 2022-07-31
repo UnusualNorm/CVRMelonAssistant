@@ -9,7 +9,7 @@ namespace CVRMelonAssistant
 {
     class Updater
     {
-        private static readonly string APILatestURL = "https://api.github.com/repos/UnusualNorm/CVRMelonAssistant/releases/latest";
+        private static readonly string APILatestURL = "https://api.github.com/repos/knah/CVRMelonAssistant/releases/latest";
 
         private static Update LatestUpdate;
         private static Version CurrentVersion;
@@ -32,7 +32,7 @@ namespace CVRMelonAssistant
             LatestVersion = new Version(LatestUpdate.tag_name.Substring(1));
             CurrentVersion = new Version(App.Version);
 
-            return (LatestVersion > CurrentVersion);
+            return true;
         }
 #pragma warning restore CS0162 // Unreachable code detected
 
